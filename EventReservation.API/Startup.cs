@@ -1,8 +1,9 @@
+using EventReservation.Core.Common;
+using EventReservation.Core.Helpers;
 using EventReservation.Core.Repository;
 using EventReservation.Core.Service;
 using EventReservation.Infra.Repository;
 using EventReservation.Infra.Service;
-using LMSTahaluf.Core.Common;
 using LMSTahaluf.Infra.Common;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -40,6 +41,15 @@ namespace EventReservation.API
             services.AddScoped<ICardService, CardService>();
             services.AddScoped<ILoginRepository, LoginRepository>();
             services.AddScoped<ILoginService, LoginService>();
+            services.AddScoped<IImageRepository, ImageRepository>();
+            services.AddScoped<IImageService, ImageService>();
+            services.AddScoped<ILocationRepository, LocationRepository>();
+            services.AddScoped<ILoctationService, LocationService>();
+
+            services.AddScoped<IEventRepository, EventRepository>();
+            services.AddScoped<IEventService, EventService>();
+
+            services.Configure<CloudinarySettings>(Configuration.GetSection("CloudinarySettings"));
 
         }
 

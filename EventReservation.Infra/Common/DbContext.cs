@@ -1,4 +1,5 @@
-﻿using LMSTahaluf.Core.Common;
+﻿
+using EventReservation.Core.Common;
 using Microsoft.Extensions.Configuration;
 using Oracle.ManagedDataAccess.Client;
 using System;

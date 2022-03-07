@@ -4,16 +4,16 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace EventReservation.Core.Repository
+namespace EventReservation.Core.Service
 {
-    public interface IImageRepository
+    public interface IImageService
     {
-        List<Image> GetAllImage();
+        List<Image>GetAllImage();
         bool AddImage(ImageToAddDto imageToAddDto);
         bool UpdateImage(ImageToUpdateDto imageToUpdateDto);
         bool DeleteImage(int ImageId);
         Image GetImageById(int ImageId);
-        Image GetImageByUrl(string  Url);
-        Image GetImageByHall(int  Hallid);
+        Image GetImageByUrl(string Url);
+        Image GetImageByHall(int Hallid);
     }
 }

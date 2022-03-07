@@ -7,7 +7,7 @@ namespace EventReservation.Core.Data
     public  class Login
     {
         [Key]
-        public int Loginid { get; set; }
+        public int id { get; set; }
         public string Username { get; set; }
         public byte[] Passwordhash { get; set; }
         public byte[] Passwordsalt { get; set; }

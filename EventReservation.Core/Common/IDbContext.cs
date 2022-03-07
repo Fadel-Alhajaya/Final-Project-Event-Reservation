@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data.Common;
 using System.Text;
 
-namespace LMSTahaluf.Core.Common
+namespace EventReservation.Core.Common
 {
     public interface IDbContext
     {

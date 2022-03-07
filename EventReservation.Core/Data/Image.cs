@@ -11,6 +11,8 @@ namespace EventReservation.Core.Data
         public int Imageid { get; set; }
         public string Imageurl { get; set; }
         public string Description { get; set; }
+        public string PublicId { get; set; }
+      
         public int? Hallid { get; set; }
         [ForeignKey("Hallid")]
         public virtual Hall Hall { get; set; }

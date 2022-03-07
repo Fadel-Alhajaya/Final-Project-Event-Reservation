@@ -14,5 +14,9 @@ namespace EventReservation.Core.Data
         public int? Hallid { get; set; }
         [ForeignKey("Hallid")]
         public virtual Hall Hall { get; set; }
+        public int? Userid { get; set; }
+        [ForeignKey("UserId")]
+        public virtual User User { get; set; }
+      
     }
 }
