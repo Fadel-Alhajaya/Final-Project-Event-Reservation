@@ -47,12 +47,9 @@ namespace EventReservation.API.Controllers
                 if(flag!=true)
                     return BadRequest("Error in Reservation Process ");
 
-                return Ok("Waiting For Accept Your Request");
+                return Ok("Waiting For Accept Your Event");
 
-           
-
-            
-
+        
         }
 
         [HttpDelete]
