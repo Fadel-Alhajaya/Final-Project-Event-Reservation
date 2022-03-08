@@ -1,4 +1,5 @@
-﻿using EventReservation.Core.Service;
+﻿using EventReservation.Core.DTO;
+using EventReservation.Core.Service;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -31,6 +32,28 @@ namespace EventReservation.API.Controllers
             return Ok(result);
 
         }
+        [HttpPost]
+        [Route("NewEvent")]
+        public IActionResult AddNewEvent(EventToAddDto eventToAddDto)
+        {
+  //chick if user found //and check for no people
+            bool result = _eventService.GetStatusOfHall(eventToAddDto.HallId,eventToAddDto.Startdate, eventToAddDto.Enddate);
+            if (result == false)
+            {
+                return BadRequest("Can't Resarve The Hall At This Time");
+            }
+            
+               bool flag= _eventService.AddNewEvent(eventToAddDto);
+                if(flag!=true)
+                    return BadRequest("Error in Reservation Process ");
+
+                return Ok("Waiting For Accept Your Request");
+
+           
+
+            
+
+        }
 
         [HttpDelete]
         [Route("deleteDeleteEvent/{id}")]
@@ -57,7 +80,7 @@ namespace EventReservation.API.Controllers
 
         }
         [HttpGet]
-        [Route("GetEventById/{Id}")]//Done
+        [Route("AcceptEvent/{Id}")]//Done
         public IActionResult AcceptEvent(int Id)
         {
             var _event = _eventService.GetEventById(Id);

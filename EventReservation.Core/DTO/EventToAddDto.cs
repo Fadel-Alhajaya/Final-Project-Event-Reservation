@@ -15,8 +15,8 @@ namespace EventReservation.Core.DTO
         public int NoPerson { get; set; }
         public string Eventtype { get; set; }
         [Required]
-        public DateTime? Startdate { get; set; }
+        public DateTime Startdate { get; set; }
         [Required]
-        public DateTime? Enddate { get; set; }
+        public DateTime Enddate { get; set; }
     }
 }

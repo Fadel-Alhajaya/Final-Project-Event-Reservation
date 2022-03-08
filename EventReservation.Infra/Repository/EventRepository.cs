@@ -49,7 +49,7 @@ namespace EventReservation.Core.Repository
         {
             var p = new DynamicParameters();
             p.Add("ID", EventId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            var result = _dbContext.Connection.QueryFirstOrDefault<Event>("Event_PACKAGE.DELETEEvent", p, commandType: CommandType.StoredProcedure);
+            var result = _dbContext.Connection.ExecuteAsync("Event_PACKAGE.DELETEEvent", p, commandType: CommandType.StoredProcedure);
             if (result== null)
                 return false;
             return true;
@@ -57,21 +57,21 @@ namespace EventReservation.Core.Repository
 
         public List<Event> GetAllAccepted()
         {
-            var result = _dbContext.Connection.Query<Event>("Location_PACKAGE.GetEventAccepted", commandType: CommandType.StoredProcedure);
+            var result = _dbContext.Connection.Query<Event>("Event_PACKAGE.GetEventAccepted", commandType: CommandType.StoredProcedure);
 
             return result.ToList();
         }
 
         public List<Event> GetAllEvent()
         {
-            var result = _dbContext.Connection.Query<Event>("Location_PACKAGE.GETALLEvent", commandType: CommandType.StoredProcedure);
+            var result = _dbContext.Connection.Query<Event>("Event_PACKAGE.GETALLEvent", commandType: CommandType.StoredProcedure);
 
             return result.ToList();
         }
 
         public List<Event> GetAllRejected()
         {
-            var result = _dbContext.Connection.Query<Event>("Location_PACKAGE.GetEventRejected", commandType: CommandType.StoredProcedure);
+            var result = _dbContext.Connection.Query<Event>("Event_PACKAGE.GetEventRejected", commandType: CommandType.StoredProcedure);
 
             return result.ToList();
         }
